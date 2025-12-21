@@ -65,9 +65,6 @@ const Roles = "admin";
 
 // Use const when value should NEVER change
 
-
-
-
 // --------------------------------------------------------------------
 /**
  * ===============================
@@ -94,13 +91,13 @@ const Roles = "admin";
 // GLOBAL SCOPE with var
 // -------------------------------------------------
 
-var a = 10;   // global variable
+var a = 10; // global variable
 console.log(a); // 10
 
 {
-    // This is a block, BUT var ignores block scope
-    var a = 20;   // redeclares and overwrites the same global variable
-    console.log(a); // 20
+  // This is a block, BUT var ignores block scope
+  var a = 20; // redeclares and overwrites the same global variable
+  console.log(a); // 20
 }
 
 console.log(a); // 20 ❗
@@ -114,13 +111,13 @@ console.log(a); // 20 ❗
 
 console.log("-----------------------------------");
 
-let b = 10;   // global variable
+let b = 10; // global variable
 console.log(b); // 10
 
 {
-    // This b exists ONLY inside this block
-    let b = 20;
-    console.log(b); // 20
+  // This b exists ONLY inside this block
+  let b = 20;
+  console.log(b); // 20
 }
 
 console.log(b); // 10 ✅
@@ -133,9 +130,9 @@ console.log(b); // 10 ✅
 // -------------------------------------------------
 
 {
-    // No 'let' keyword here → refers to outer 'b'
-    b = 20;   // reassigning the global variable
-    console.log(b); // 20
+  // No 'let' keyword here → refers to outer 'b'
+  b = 20; // reassigning the global variable
+  console.log(b); // 20
 }
 
 console.log(b); // 20
@@ -153,7 +150,9 @@ const name = "suman"; // block-scoped constant
 // name = "hari"; // ERROR
 
 // ---------------------------------------------------------------------------
-console.log("---------------------------------- DATA TYPES -----------------------------------------")
+console.log(
+  "---------------------------------- DATA TYPES -----------------------------------------"
+);
 
 /**
  * ===============================
@@ -215,15 +214,15 @@ e.push(7);
 let arr = new Array(1, 2, 3, 4, 5);
 
 console.log("----------------arr-----------");
-console.log(arr); 
+console.log(arr);
 // Output: [1, 2, 3, 4, 5]
 
 // push() → adds value at the end
-arr.push(7); 
+arr.push(7);
 // [1, 2, 3, 4, 5, 7]
 
 // unshift() → adds value at the beginning
-arr.unshift(0); 
+arr.unshift(0);
 // [0, 1, 2, 3, 4, 5, 7]
 
 // splice(startIndex, deleteCount, insertValue)
@@ -243,3 +242,49 @@ arr.splice(4, 1, 345);
 
 console.log(arr);
 
+// -------------------------------------
+console.log(
+  "------------------------------------- OBJECT -------------------------------------"
+);
+
+let personObj = {
+  name: "suman",
+  email: "sumanmuhay@gmail.com",
+  address: "BKT",
+};
+
+console.log(personObj.name); //suman
+console.log(personObj.email); //sumanmuhay@gmail.com
+
+let allUser = [
+  {
+    name: "suman",
+    email: "sumanmuhay@gmail.com",
+    address: "BKT",
+  },
+  {
+    name: "aman",
+    email: "anmn@gmail.com",
+    address: "BKT",
+  },
+];
+console.log(allUser)
+console.log(allUser[0]) //{ name: 'suman', email: 'sumanmuhay@gmail.com', address: 'BKT' }
+
+/**
+ * Task 1 create an array of students
+ * push atleast 5 random objects using push , unshift, and splice function in the array
+ * print the values of each student from array
+ */
+
+// Task 1: Create an array of students
+let std = [];
+
+std.push({id:1, name:"suman",age:25})
+std.push({id:2, name:"amadn",age:25})
+std.push({id:3, name:"dasd",age:28})
+std.push({id:4, name:"kjnl",age:27})
+std.push({id:5, name:"tup",age:26})
+
+
+console.log(std)
