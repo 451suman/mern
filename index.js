@@ -69,10 +69,177 @@ const Roles = "admin";
 
 
 // --------------------------------------------------------------------
+/**
+ * ===============================
+ * Scope in JavaScript
+ * ===============================
+ *
+ * Scope defines where a variable can be accessed.
+ *
+ * Types of Scope:
+ * a. Global Scope
+ *    - Variables declared outside any block or function
+ *    - Accessible everywhere
+ *
+ * b. Block Scope
+ *    - Variables declared inside { }
+ *    - Applies only to let and const
+ *
+ * c. Function Scope
+ *    - Variables declared inside a function
+ *    - var is function-scoped, NOT block-scoped
+ */
+
+// -------------------------------------------------
+// GLOBAL SCOPE with var
+// -------------------------------------------------
+
+var a = 10;   // global variable
+console.log(a); // 10
+
+{
+    // This is a block, BUT var ignores block scope
+    var a = 20;   // redeclares and overwrites the same global variable
+    console.log(a); // 20
+}
+
+console.log(a); // 20 ❗
+// Reason:
+// - var is NOT block-scoped
+// - The value 20 overwrites the global 'a'
+
+// -------------------------------------------------
+// BLOCK SCOPE with let
+// -------------------------------------------------
+
+console.log("-----------------------------------");
+
+let b = 10;   // global variable
+console.log(b); // 10
+
+{
+    // This b exists ONLY inside this block
+    let b = 20;
+    console.log(b); // 20
+}
+
+console.log(b); // 10 ✅
+// Reason:
+// - let is block-scoped
+// - inner 'b' does not affect outer 'b'
+
+// -------------------------------------------------
+// Reassigning let (without redeclaration)
+// -------------------------------------------------
+
+{
+    // No 'let' keyword here → refers to outer 'b'
+    b = 20;   // reassigning the global variable
+    console.log(b); // 20
+}
+
+console.log(b); // 20
+
+// -------------------------------------------------
+// const scope
+// -------------------------------------------------
+
+const name = "suman"; // block-scoped constant
+
+// ❌ Cannot redeclare
+// const name = "ram"; // ERROR
+
+// ❌ Cannot reassign
+// name = "hari"; // ERROR
+
+// ---------------------------------------------------------------------------
+console.log("---------------------------------- DATA TYPES -----------------------------------------")
 
 /**
- * scope
- * a. global
- * b. block
- * c. funcional
+ * ===============================
+ * JavaScript Data Types
+ * ===============================
+ *
+ * 1. String
+ *    - Used to store text
+ *    - Can be written using:
+ *      '', "", ``
+ *
+ * 2. Number
+ *    - Integer   → 10, 20
+ *    - Float     → 10.5, 3.14
+ *    - BigInt    → very large numbers
+ *
+ * 3. Boolean
+ *    - true or false
+ *
+ * 4. Null
+ *    - Represents an intentional empty value
+ *
+ * 5. Undefined
+ *    - Variable declared but not assigned a value
+ *
+ * 6. Array
+ *    - Collection of multiple values
+ *    - Can store any data type
+ *    - Values are separated by commas
+ *    - Each value has an index
+ *    - Index starts from 0
+ *
+ * 7. Object / JSON
+ *    - Stores data in key-value pairs
+ *
+ * 8. Function
+ *    - Block of reusable code
  */
+
+// -------------------------------------------------
+// Array Example (Literal Method)
+// -------------------------------------------------
+
+let e = [1, 2, 3, 4, 5, 6];
+
+// Accessing array value using index
+console.log(e[0]); // 1
+
+// Printing entire array
+console.log(e);
+
+// Adding value at the end of array
+e.push(7);
+
+// -------------------------------------------------
+// Array Example (Constructor Method)
+// -------------------------------------------------
+
+let arr = new Array(1, 2, 3, 4, 5);
+
+console.log("----------------arr-----------");
+console.log(arr); 
+// Output: [1, 2, 3, 4, 5]
+
+// push() → adds value at the end
+arr.push(7); 
+// [1, 2, 3, 4, 5, 7]
+
+// unshift() → adds value at the beginning
+arr.unshift(0); 
+// [0, 1, 2, 3, 4, 5, 7]
+
+// splice(startIndex, deleteCount, insertValue)
+// Insert 3.5 at index 4 without deleting anything
+arr.splice(4, 0, 3.5);
+// [0, 1, 2, 3, 3.5, 4, 5, 7]
+
+// Remove 1 element from index 4 (removes 3.5)
+arr.splice(4, 1);
+// [0, 1, 2, 3, 4, 5, 7]
+
+console.log(arr);
+
+// Replace value at index 4 with 345
+arr.splice(4, 1, 345);
+// [0, 1, 2, 3, 345, 5, 7]
+
+console.log(arr);
+
