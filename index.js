@@ -285,6 +285,39 @@ std.push({id:2, name:"amadn",age:25})
 std.push({id:3, name:"dasd",age:28})
 std.push({id:4, name:"kjnl",age:27})
 std.push({id:5, name:"tup",age:26})
-
+console.log("-----------------------------")
+std.splice(0, 1);   // remove 1 element from index 0
+std.pop(); //last index
 
 console.log(std)
+
+console.log(`-------------------------------
+Task 1: Create an array of students
+- Push at least 5 random objects using push, unshift, and splice
+- Print the values of each student from array
+---------------------------------------------------------`);
+// Task 1: Create an array of students
+let std_new = [];
+
+// Using push (add at end)
+std_new.push({ id: 1, name: "Suman", age: 25 });
+std_new.push({ id: 2, name: "Ram", age: 22 });
+
+// Using unshift (add at beginning)
+std_new.unshift({ id: 3, name: "Hari", age: 24 });
+
+// Using splice (add at specific index)
+std_new.splice(1, 0, { id: 4, name: "Gita", age: 23 });
+
+// Another push
+std_new.push({ id: 5, name: "Shyam", age: 26 });
+
+console.log("----- All Students -----");
+
+// Print each student
+for (let i = 0; i < std_new.length; i++) {
+  console.log("ID:", std_new[i].id);
+  console.log("Name:", std_new[i].name);
+  console.log("Age:", std_new[i].age);
+  console.log("----------------");
+}
