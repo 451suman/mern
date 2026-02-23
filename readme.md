@@ -32,3 +32,9 @@
 ## ES (ECMAScript)
 - ES5
 - ES6
+
+
+files
+1. index.js
+2. data_types
+3. operators
